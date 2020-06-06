@@ -29,11 +29,11 @@ def makegaps(x, now):
 
 def create_explanation(years_ago, days_ago):
     if days_ago < 0:
-        explanation = f"{years_ago} years ago, Bach would have just recently performed this ({int(-1 * days_ago)} days prior)."
+        explanation = f"*{years_ago} years ago, Bach would have just recently performed this ({int(-1 * days_ago)} days prior).*"
     elif days_ago > 0:
-        explanation = f"{years_ago} years ago, Bach would have been preparing to perform this in {days_ago} days."
+        explanation = f"*{years_ago} years ago, Bach would have been preparing to perform this in {days_ago} days.*"
     elif days_ago == 0:
-        explanation = f"Performed this day, {years_ago} years ago."
+        explanation = f"***Performed this day, {years_ago} years ago.***"
     else:
         explanation = ""
     if abs(days_ago) == 1:
@@ -64,7 +64,7 @@ def main():
         explanation = create_explanation(row['Years Ago'], row['Days Ago'])
         st.markdown("---")
         st.markdown(f"BWV {row['BWV']}, {row['Title']}")
-        st.markdown(f"Performance Date: {row['Weekday']}, {row['Date']}.  \n*{explanation}*")
+        st.markdown(f"Performance Date: {row['Weekday']}, {row['Date']}.  \n{explanation}")
         st.markdown(f"CD {int(row['JEG CD'])} in complete cantatas by John Eliot Gardiner / Montiverdi Choir / English Baroque Soloists")
         st.markdown(f"More information: [Wikipedia]({row['Wikipedia']}), [IMSLP]({row['IMSLP']}), [Bach Digital]({row['Bach Digital']})")
         
