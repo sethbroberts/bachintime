@@ -65,7 +65,7 @@ def main():
         st.markdown("---")
         st.markdown(f"BWV {row['BWV']}, {row['Title']}")
         st.markdown(f"Performance Date: {row['Weekday']}, {row['Date']}.  \n{explanation}")
-        st.markdown(f"CD {int(row['JEG CD'])} in complete cantatas by John Eliot Gardiner / Montiverdi Choir / English Baroque Soloists")
+        st.markdown(f"CD {int(row['JEG CD'])} in complete cantatas by John Eliot Gardiner / Monteverdi Choir / English Baroque Soloists")
         st.markdown(f"More information: [Wikipedia]({row['Wikipedia']}), [IMSLP]({row['IMSLP']}), [Bach Digital]({row['Bach Digital']})")
         
     
