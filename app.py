@@ -52,6 +52,12 @@ def main():
     ].copy().sort_values('Delta', ascending=False).reset_index(drop=True)
     window.drop(columns=['Delta'], inplace=True)
 
+    # sidebar
+    # st.sidebar.markdown("""### About  \nThe goal of this page is to give a sense of some of 
+    # J.S. Bach's day to day preoccupations at various times of the year.
+    # """)
+    #st.sidebar.video('https://www.youtube.com/watch?v=5o1DZPqqx-M')
+
     # title for page
     st.title(f"Bach In Time")
 
@@ -64,10 +70,11 @@ def main():
         explanation = create_explanation(row['Years Ago'], row['Days Ago'])
         st.markdown("---")
         st.markdown(f"BWV {row['BWV']}, {row['Title']}")
-        st.markdown(f"Performance Date: {row['Weekday']}, {row['Date']}.  \n{explanation}")
+        st.markdown(f"Performance Date: {row['Weekday']}, {row['Date']}.  \n{explanation}")                
         st.markdown(f"CD {int(row['JEG CD'])} in complete cantatas by John Eliot Gardiner / Monteverdi Choir / English Baroque Soloists")
-        st.markdown(f"More information: [Wikipedia]({row['Wikipedia']}), [IMSLP]({row['IMSLP']}), [Bach Digital]({row['Bach Digital']})")
-        
+        half1 = f"More information: [Wikipedia]({row['Wikipedia']}), [IMSLP]({row['IMSLP']}), [Bach Digital]({row['Bach Digital']})"
+        half2 = f", [Performances]({row['YouTube']}), [Translation]({row['Translation']})"
+        st.markdown(half1 + half2)
     
 if __name__ == '__main__':
     main()
