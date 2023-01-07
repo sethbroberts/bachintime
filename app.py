@@ -3,6 +3,7 @@ import pandas as pd
 import numpy as np 
 import datetime
 import time
+import pytz
 
 
 def read_data():
@@ -69,7 +70,8 @@ def create_explanation_life(date_type, years_ago, days_ago, event):
 
 #::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
-now = datetime.datetime.now()
+timeZ_Ny = pytz.timezone('America/New_York')
+now = datetime.datetime.now(timeZ_Ny)
 
 # read in & process performance data
 df = read_data()
