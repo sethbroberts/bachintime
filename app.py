@@ -112,6 +112,8 @@ with st.container():
     for index, row in window.iterrows():
         explanation = create_explanation(row['Years Ago'], row['Days Ago'])
         st.markdown("---")
+        st.markdown(f"##### BWV {row['BWV']}")
+        st.markdown(f"##### {row['Title']}")
         st.markdown(f"Performance Date: {row['Weekday']}, {row['Date'].day} {row['Date'].strftime('%B')} {row['Date'].year}.  \n*{explanation}*")
         st.markdown(f"CD {int(row['JEG CD'])} in complete cantatas by John Eliot Gardiner / Montiverdi Choir / English Baroque Soloists")
         st.markdown(f"More information: [Wikipedia]({row['Wikipedia']}), [IMSLP]({row['IMSLP']}), [Bach Digital]({row['Bach Digital']})")
