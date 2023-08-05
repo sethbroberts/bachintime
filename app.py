@@ -9,7 +9,7 @@ import pytz
 def read_data():
     df = pd.read_csv('bachintime.csv')
     df = df[df['JEG CD'].notnull()]
-    df.loc[:,'Date'] = df['Date'].apply(pd.to_datetime)
+    df['Date'] = pd.to_datetime(df['Date'])
     df.loc[:,'Weekday'] = df['Date'].dt.weekday.map(
         {0:'Monday', 1:'Tuesday', 2:'Wednesday', 3:'Thursday', 4:'Friday', 5:'Saturday', 6:'Sunday'}
     )
